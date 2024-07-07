@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  modules: ['@sidebase/nuxt-auth'],
+  runtimeConfig: {
+    AUTH_SECRET: process.env.AUTH_SECRET,
+  },
   devServer: {
     port: 3000
   },

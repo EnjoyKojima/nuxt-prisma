@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@sidebase/nuxt-auth": "^0.8.0",
-    "next-auth": "^4.24.7",
+    "next-auth": "^4.22.5",
     "nuxt": "^3.12.3",
     "vue": "latest"
   }
