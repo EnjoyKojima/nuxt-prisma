@@ -6,6 +6,9 @@ export default defineNuxtConfig({
         type: 'authjs'
     }
   },
+  runtimeConfig: {
+    databaseUrl: process.env.DATABASE_URL,
+  },
   devtools: { enabled: true },
   devServer: {
     port: 3000
