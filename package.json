@@ -7,14 +7,19 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev --name dev"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.4.1",
+    "@prisma/client": "^5.16.1",
     "next-auth": "4.22.5",
     "nuxt": "^3.12.3",
     "vue": "latest"
   },
   "devDependencies": {
-    "@sidebase/nuxt-auth": "^0.8.0"
+    "@sidebase/nuxt-auth": "^0.8.0",
+    "prisma": "^5.16.1"
   }
 }
