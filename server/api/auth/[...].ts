@@ -1,18 +1,25 @@
 import { NuxtAuthHandler } from '#auth'
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"   
-import { PrismaPg } from '@prisma/adapter-pg'
-import { Pool } from 'pg'
+import GoogleProvider from "next-auth/providers/google";
 
 const runtimeConfig = useRuntimeConfig()
 
-const connectionString = runtimeConfig.databaseUrl
-
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
+const prisma = new PrismaClient()
 
 export default NuxtAuthHandler({
-    providers: [],
+    secret: runtimeConfig.auth.secret,
+    providers: [
+         GoogleProvider({
+            clientId: runtimeConfig.auth.google.clientId,
+            clientSecret: runtimeConfig.auth.google.clientSecret,
+        })
+    ],
+    callbacks: {
+        async signIn(credentials) {
+            console.log(credentials)
+            return true
+        }
+    },
     adapter: PrismaAdapter(prisma),
 })
